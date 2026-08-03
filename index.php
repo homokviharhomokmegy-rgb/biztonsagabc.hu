@@ -43,5 +43,8 @@ header('Content-Type: text/html; charset=utf-8');
   <footer class="site-footer container">
     <small>&copy; <?php echo date('Y'); ?> biztonsagabc.hu</small>
   </footer>
+
+  <!-- Alap JavaScript fájl -->
+  <script src="system/js/script.js" defer></script>
 </body>
 </html>
