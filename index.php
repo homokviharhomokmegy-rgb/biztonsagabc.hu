@@ -21,6 +21,9 @@ header('Content-Type: text/html; charset=utf-8');
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Biztonság ABC</title>
+  <!-- Bootstrap CSS (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <!-- Stíluslap bekapcsolva -->
   <link rel="stylesheet" href="system/css/style.css">
   <style>
@@ -38,12 +41,15 @@ header('Content-Type: text/html; charset=utf-8');
   <main class="site-main container">
     <p>Ez egy alap index.php fájl. Szerkeszd és bővítsd a projekt igényei szerint.</p>
     <p>PHP verzió: <?php echo PHP_VERSION; ?></p>
+    <p><a class="btn btn-primary" href="#">Példa gomb (Bootstrap)</a></p>
   </main>
 
   <footer class="site-footer container">
     <small>&copy; <?php echo date('Y'); ?> biztonsagabc.hu</small>
   </footer>
 
+  <!-- Bootstrap JS (bundle includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
   <!-- Alap JavaScript fájl -->
   <script src="system/js/script.js" defer></script>
 </body>
