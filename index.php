@@ -21,23 +21,26 @@ header('Content-Type: text/html; charset=utf-8');
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Biztonság ABC</title>
+  <!-- Stíluslap bekapcsolva -->
+  <link rel="stylesheet" href="system/css/style.css">
   <style>
+    /* Kis fallback stílusok ha a CSS nem töltődik be */
     body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; line-height:1.6; padding:2rem; }
     header { margin-bottom:1.5rem }
     footer { margin-top:2rem; color:#666; font-size:0.9rem }
   </style>
 </head>
 <body>
-  <header>
+  <header class="site-header container">
     <h1>Üdvözöl a biztonsagabc.hu!</h1>
   </header>
 
-  <main>
+  <main class="site-main container">
     <p>Ez egy alap index.php fájl. Szerkeszd és bővítsd a projekt igényei szerint.</p>
     <p>PHP verzió: <?php echo PHP_VERSION; ?></p>
   </main>
 
-  <footer>
+  <footer class="site-footer container">
     <small>&copy; <?php echo date('Y'); ?> biztonsagabc.hu</small>
   </footer>
 </body>
