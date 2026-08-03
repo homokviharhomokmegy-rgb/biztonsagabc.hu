@@ -1,0 +1,54 @@
+# Basic .htaccess for biztonsagabc.hu
+# - Rewrite requests to index.php (front controller)
+# - Basic security headers and protections
+# - Disable directory listing
+
+# Prevent directory listing
+Options -Indexes
+
+# Disable server signature
+ServerSignature Off
+
+# Force UTF-8
+AddDefaultCharset UTF-8
+
+# Security headers
+<IfModule mod_headers.c>
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "no-referrer-when-downgrade"
+  Header set X-XSS-Protection "1; mode=block"
+  # HSTS (uncomment if using HTTPS site-wide)
+  # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+</IfModule>
+
+# Protect sensitive files
+<FilesMatch "^(?:composer\.json|composer\.lock|\.env|\.htaccess|readme(?:\.md)?|license|LICENSE)$">
+  Require all denied
+</FilesMatch>
+
+# Block access to .git and vendor directories
+RedirectMatch 404 /\.git(/|$)
+RedirectMatch 404 /vendor(/|$)
+
+# If you want to hide PHP errors from users, ensure PHP configured appropriately
+# and consider logging errors to a file instead.
+
+# Rewrite to index.php for front-controller pattern
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Serve existing files directly
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # All other requests go to index.php
+  RewriteRule ^ index.php [L]
+</IfModule>
+
+# Fallback content type for unknown files
+<IfModule mod_mime.c>
+  AddType application/octet-stream .bin .exe
+</IfModule>
